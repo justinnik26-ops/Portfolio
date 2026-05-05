@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Nikfarjam | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #f9fafb;
+            --bg-secondary: #ffffff;
+            --bg-dark: #0f1a2e;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --accent-primary: #1e6b7d;
+            --accent-secondary: #2c9aaf;
+            --accent-tertiary: #5db9c9;
+            --accent-warm: #c8963e;
+            --gold: #c8963e;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.06);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ── Navigation ────────────────────── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid transparent;
+            transition: all var(--transition);
+            padding: 0 2rem;
+        }
+
+        .navbar.scrolled {
+            border-bottom-color: var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.55rem 1rem;
+            border-radius: 25px;
+            transition: all var(--transition);
+            letter-spacing: 0.1px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-primary);
+            background: rgba(30, 107, 125, 0.07);
+        }
+
+        .nav-cta {
+            background: var(--accent-primary) !important;
+            color: #fff !important;
+            font-weight: 600 !important;
+            padding: 0.55rem 1.3rem !important;
+            border-radius: 25px !important;
+        }
+        .nav-cta:hover {
+            background: #185a69 !important;
+            color: #fff !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            padding: 0.5rem;
+        }
+
+        /* ── Hero Section ──────────────────── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 2rem 80px;
+            background: linear-gradient(170deg, #f0f6f8 0%, #f9fafb 30%, #ffffff 70%, #fdf5eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -180px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(30, 107, 125, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -80px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 150, 62, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(30, 107, 125, 0.1);
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--accent-primary);
+            position: relative;
+        }
+
+        .hero-text h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-tertiary);
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-tag {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 0.45rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--transition);
+            cursor: default;
+        }
+        .hero-tag:hover {
+            border-color: var(--accent-tertiary);
+            color: var(--accent-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(30, 107, 125, 0.3);
+        }
+        .btn-primary:hover {
+            background: #185a69;
+            box-shadow: 0 6px 20px rgba(30, 107, 125, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-primary);
+            color: var(--accent-primary);
+        }
+        .btn-outline:hover {
+            background: rgba(30, 107, 125, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .hero-image-wrapper {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #dce9ec 0%, #e8f0f2 40%, #f0e6d3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            border: 6px solid #fff;
+            overflow: hidden;
+        }
+
+        /* Updated: image now fills the circle */
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-ring {
+            position: absolute;
+            top: -16px;
+            left: -16px;
+            right: -16px;
+            bottom: -16px;
+            border-radius: 50%;
+            border: 3px dashed var(--accent-tertiary);
+            opacity: 0.5;
+            animation: rotateRing 40s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotateRing {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-dot-pattern {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, var(--accent-tertiary) 1.5px, transparent 1.5px);
+            background-size: 12px 12px;
+            opacity: 0.4;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        .hero-dot-pattern.top-right {
+            top: -10px;
+            right: -20px;
+        }
+        .hero-dot-pattern.bottom-left {
+            bottom: -10px;
+            left: -25px;
+            width: 60px;
+            height: 60px;
+        }
+
+        /* ── Sections Common ───────────────── */
+        .section {
+            padding: 90px 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        /* ── About Section ────────────────── */
+        #about {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            margin: -40px auto 0;
+            padding: 70px 3rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 2;
+            max-width: 1050px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-highlight-box {
+            background: linear-gradient(135deg, #f0f6f8, #fdf5eb);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .about-highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent-primary);
+        }
+
+        .about-highlight-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        .info-list li i {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin-top: 2px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* ── Education ────────────────────── */
+        .education-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            transition: all var(--transition);
+            border: 1px solid transparent;
+        }
+        .education-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border);
+        }
+        .edu-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, #1e6b7d, #2c9aaf);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .edu-details h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .edu-details .school-name {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .edu-details .edu-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        .edu-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .edu-badge {
+            background: rgba(30, 107, 125, 0.08);
+            color: var(--accent-primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            letter-spacing: 0.2px;
+        }
+
+        /* ── Experience Cards ─────────────── */
+        .exp-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            transition: all var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .exp-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border);
+            transform: translateY(-2px);
+        }
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-primary);
+            border-radius: 0 4px 4px 0;
+        }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .exp-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .exp-company {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .exp-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+            background: #f7fafb;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+        }
+        .exp-details {
+            list-style: none;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .exp-details li {
+            font-size: 0.93rem;
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        .exp-details li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-tertiary);
+            font-weight: 700;
+        }
+
+        /* ── Leadership Cards ─────────────── */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .leadership-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+        }
+        .leadership-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border);
+            transform: translateY(-2px);
+        }
+        .leadership-card .org-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.3rem;
+        }
+        .leadership-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        .leadership-card .lead-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+        .leadership-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .leadership-card .award-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fdf5eb, #fef9f2);
+            color: var(--accent-warm);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            margin-top: 0.8rem;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(200, 150, 62, 0.3);
+        }
+        .leadership-card .award-badge i {
+            margin-right: 0.3rem;
+        }
+
+        /* ── Skills ───────────────────────── */
+        .skills-section {
+            background: var(--bg-dark);
+            color: #fff;
+            padding: 90px 2rem;
+            margin-top: 0;
+            border-radius: 0;
+        }
+        .skills-section .section-label {
+            color: var(--accent-tertiary);
+        }
+        .skills-section .section-title {
+            color: #fff;
+        }
+        .skills-section .section-subtitle {
+            color: #cbd5e0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .skill-category {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all var(--transition);
+        }
+        .skill-category:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .skill-category h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-tertiary);
+            letter-spacing: 0.3px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            font-size: 0.82rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all var(--transition);
+            cursor: default;
+        }
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            max-width: 1100px;
+            margin: 2rem auto 0;
+            justify-content: center;
+        }
+        .interest-item {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            font-weight: 500;
+            transition: all var(--transition);
+            cursor: default;
+        }
+        .interest-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--accent-tertiary);
+            color: #fff;
+        }
+
+        /* ── Contact / Footer ─────────────── */
+        .contact-section {
+            background: var(--bg-secondary);
+            padding: 70px 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-card {
+            max-width: 550px;
+            margin: 0 auto;
+            background: #f9fafb;
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            background: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+        }
+        .contact-link:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .contact-link i {
+            color: var(--accent-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* ── Responsive ───────────────────── */
+        @media (max-width: 900px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+            }
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            .hero-subtitle {
+                margin: 0 auto 1.5rem;
+            }
+            .hero-tags {
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-image {
+                width: 200px;
+                height: 200px;
+            }
+            .hero-image-ring {
+                top: -12px;
+                left: -12px;
+                right: -12px;
+                bottom: -12px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            #about {
+                padding: 50px 1.5rem;
+                margin: -20px 1rem 0;
+            }
+            .section {
+                padding: 60px 1.25rem;
+            }
+            .exp-header {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.97);
+                flex-direction: column;
+                padding: 1rem 2rem 2rem;
+                gap: 0.3rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-lg);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .education-card {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 1rem 50px;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-image {
+                width: 160px;
+                height: 160px;
+            }
+            .btn {
+                padding: 0.65rem 1.3rem;
+                font-size: 0.85rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            #about {
+                padding: 35px 1.2rem;
+                margin: -15px 0.5rem 0;
+                border-radius: var(--radius-lg);
+            }
+            .exp-card {
+                padding: 1.5rem;
+            }
+            .skills-section {
+                padding: 60px 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#hero" class="nav-logo">JN</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">📍 Los Angeles, CA</span>
+                <h1>Hi, I'm <span class="highlight">Justin</span> Nikfarjam</h1>
+                <p class="hero-subtitle">
+                    Student leader exploring the intersection of <strong>business</strong> and <strong>healthcare</strong> — driven by curiosity, creativity, and a desire to make a meaningful impact.
+                </p>
+                <div class="hero-tags">
+                    <span class="hero-tag">🏥 Healthcare</span>
+                    <span class="hero-tag">📈 Business Strategy</span>
+                    <span class="hero-tag">🤖 AI Integration</span>
+                    <span class="hero-tag">🎤 Public Policy</span>
+                    <span class="hero-tag">🌟 Civic Leadership</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fa-solid fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="#experience" class="btn btn-outline">
+                        <i class="fa-solid fa-arrow-down"></i> View My Work
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image">
+                    <!-- ═══ REPLACE THIS SRC WITH YOUR ACTUAL PHOTO URL ═══ -->
+                    <img src="https://via.placeholder.com/280" alt="Justin Nikfarjam profile photo">
+                    <!-- ═══════════════════════════════════════════════════ -->
+                </div>
+                <div class="hero-image-ring"></div>
+                <div class="hero-dot-pattern top-right"></div>
+                <div class="hero-dot-pattern bottom-left"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section id="about" class="section">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Objective &amp; Background</h2>
+        <div class="about-grid">
+            <div>
+                <p class="section-subtitle" style="margin-bottom:1.5rem;">
+                    I'm a motivated high school senior at <strong>Palisades Charter High School</strong> with a 4.0 unweighted GPA and a passion for the crossroads of business innovation and healthcare delivery. My experiences span hospital operations, digital marketing with AI, and civic leadership.
+                </p>
+                <ul class="info-list">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Los Angeles, California</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Expected Graduation: June 2025</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-star"></i>
+                        <span>GPA: 4.0 Unweighted / 4.25 Weighted</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>justinnik@icloud.com</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+1 (310) 210-7229</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="about-highlight-box">
+                <h3>🌟 What Drives Me</h3>
+                <p>
+                    I believe the future of healthcare lies at the intersection of <strong>compassionate patient care</strong> and <strong>smart business strategy</strong>. From shadowing clinicians at Kaiser Permanente to building AI-powered e-commerce solutions at Gruppo Bravo, I'm constantly seeking ways to blend creativity with real-world impact. My goal is to pursue opportunities that challenge me to think critically, lead with empathy, and innovate boldly.
+                </p>
+                <p style="margin-top:1rem;">
+                    <em>"Seeking opportunities to apply creative and analytical skills to make a meaningful impact in healthcare, entrepreneurship, and community engagement."</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ EDUCATION ═══════════════ -->
+    <section id="education" class="section">
+        <span class="section-label">Education</span>
+        <h2 class="section-title">Academic Foundation</h2>
+        <p class="section-subtitle">Building a strong academic record while actively participating in honors societies and career-focused organizations.</p>
+        <div class="education-card">
+            <div class="edu-icon">
+                <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="edu-details">
+                <h3>Palisades Charter High School</h3>
+                <p class="school-name">Los Angeles, CA</p>
+                <p class="edu-meta">Expected Graduation: <strong>June 2025</strong> &nbsp;|&nbsp; GPA: <strong>4.0</strong> Unweighted / <strong>4.25</strong> Weighted</p>
+                <div class="edu-badges">
+                    <span class="edu-badge">🏅 National Honor Society</span>
+                    <span class="edu-badge">🏅 California Scholarship Federation</span>
+                    <span class="edu-badge">📊 DECA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PROFESSIONAL EXPERIENCE ═══════════════ -->
+    <section id="experience" class="section">
+        <span class="section-label">Professional Experience</span>
+        <h2 class="section-title">Where I've Worked</h2>
+        <p class="section-subtitle">Hands-on experience across healthcare, digital marketing, and e-commerce.</p>
+
+        <!-- Experience 1: Gruppo Bravo -->
+        <div class="exp-card">
+            <div class="exp-header">
+                <div>
+                    <h3>Marketing &amp; E-Commerce Agent</h3>
+                    <p class="exp-company">Gruppo Bravo — Los Angeles, CA</p>
+                </div>
+                <span class="exp-date">June 2023 – Present</span>
+            </div>
+            <ul class="exp-details">
+                <li>Implemented <strong>AI face generation</strong> to create model heads for product imagery on the company website, enhancing brand presentation and visual appeal.</li>
+                <li>Managed e-commerce product listings and inventory across digital platforms to maintain up-to-date and accurate product availability.</li>
+                <li>Supported digital marketing campaigns by contributing to content creation, promotional strategy, and online branding.</li>
+                <li>Represented the company at the <strong>Chicago Collective trade show</strong>, assisting in client engagement, trend analysis, and brand showcasing.</li>
+            </ul>
+        </div>
+
+        <!-- Experience 2: Kaiser Permanente -->
+        <div class="exp-card">
+            <div class="exp-header">
+                <div>
+                    <h3>Healthcare Intern</h3>
+                    <p class="exp-company">Kaiser Permanente — SYEP LAUNCH Program — Los Angeles, CA</p>
+                </div>
+                <span class="exp-date">Summer 2024</span>
+            </div>
+            <ul class="exp-details">
+                <li>Rotated through multiple hospital departments including the <strong>Emergency Department, Surgery Post-Op, Nursing, and Cardiology</strong>.</li>
+                <li>Gained firsthand exposure to patient care, hospital logistics, and interdisciplinary collaboration.</li>
+                <li>Participated in workshops focused on career development, healthcare ethics, and workplace professionalism.</li>
+                <li>Supported department staff with administrative tasks and shadowed clinical professionals during hospital rounds.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ═══════════════ LEADERSHIP & EXTRACURRICULARS ═══════════════ -->
+    <section id="leadership" class="section">
+        <span class="section-label">Leadership &amp; Extracurriculars</span>
+        <h2 class="section-title">Beyond the Classroom</h2>
+        <p class="section-subtitle">Developing leadership skills through service, debate, and business competitions.</p>
+        <div class="leadership-grid">
+            <!-- Friendship Circle -->
+            <div class="leadership-card">
+                <p class="org-name">Friendship Circle Los Angeles (FCLA)</p>
+                <h4>Volunteer &amp; Fellowship Award Recipient</h4>
+                <p class="lead-date">2022 – Present</p>
+                <p>Volunteered in inclusive programs for children and teens with special needs, focusing on companionship and social development. Facilitated interactive and recreational activities in a warm, welcoming environment.</p>
+                <span class="award-badge"><i class="fa-solid fa-trophy"></i> Fellowship Award — Exceptional Dedication &amp; Leadership</span>
+            </div>
+
+            <!-- Youth and Government -->
+            <div class="leadership-card">
+                <p class="org-name">Youth and Government (Y&amp;G) — California YMCA</p>
+                <h4>Delegate &amp; Debate Leader</h4>
+                <p class="lead-date">2023 – Present</p>
+                <p>Drafted and debated legislation, including leading discussions on a school-authored bill regarding nuclear energy policy. Participated in statewide conferences simulating California's legislative process.</p>
+            </div>
+
+            <!-- DECA -->
+            <div class="leadership-card">
+                <p class="org-name">DECA — Business &amp; Marketing Club</p>
+                <h4>Member</h4>
+                <p class="lead-date">2023 – Present</p>
+                <p>Competed in business case competitions, applying analytical and marketing strategies to real-world challenges. Explored entrepreneurship and financial modeling through collaborative events and projects.</p>
+            </div>
+
+            <!-- NHS -->
+            <div class="leadership-card">
+                <p class="org-name">National Honor Society (NHS)</p>
+                <h4>Member</h4>
+                <p class="lead-date">2023 – Present</p>
+                <p>Recognized for academic excellence, service, leadership, and character. Contributed to various campus and community service projects.</p>
+            </div>
+
+            <!-- CSF -->
+            <div class="leadership-card">
+                <p class="org-name">California Scholarship Federation (CSF)</p>
+                <h4>Member</h4>
+                <p class="lead-date">2023 – Present</p>
+                <p>Maintained strong academic standing while engaging in volunteer service to support the community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ SKILLS & INTERESTS ═══════════════ -->
+    <section id="skills" class="skills-section">
+        <div style="max-width:1100px;margin:0 auto;">
+            <span class="section-label">Skills &amp; Interests</span>
+            <h2 class="section-title">What I Bring to the Table</h2>
+            <p class="section-subtitle">A blend of technical tools, creative capabilities, and passionate interests.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>💻 Technical &amp; Software</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Microsoft Excel</span>
+                    <span class="skill-tag">Word</span>
+                    <span class="skill-tag">PowerPoint</span>
+                    <span class="skill-tag">QuickBooks</span>
+                    <span class="skill-tag">Adobe Illustrator</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>🌐 Digital &amp; Marketing</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Website Content Management</span>
+                    <span class="skill-tag">AI Face Generation</span>
+                    <span class="skill-tag">Digital Marketing</span>
+                    <span class="skill-tag">Inventory Systems</span>
+                    <span class="skill-tag">E-Commerce</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>🗣️ Interpersonal</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Public Speaking</span>
+                    <span class="skill-tag">Debate &amp; Negotiation</span>
+                    <span class="skill-tag">Policy-Making</span>
+                    <span class="skill-tag">Client Engagement</span>
+                    <span class="skill-tag">Team Collaboration</span>
+                </div>
+            </div>
+        </div>
+        <div style="max-width:1100px;margin:0 auto;">
+            <h4 style="color:#cbd5e0;text-align:center;margin-top:2.5rem;font-weight:600;letter-spacing:0.5px;">🎯 Interests</h4>
+        </div>
+        <div class="interests-list">
+            <span class="interest-item">Business in Healthcare</span>
+            <span class="interest-item">Entrepreneurship</span>
+            <span class="interest-item">Medical Innovation</span>
+            <span class="interest-item">Public Policy</span>
+            <span class="interest-item">Marketing Strategy</span>
+            <span class="interest-item">Civic Leadership</span>
+            <span class="interest-item">AI in Business</span>
+            <span class="interest-item">Community Engagement</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section id="contact" class="contact-section">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title" style="margin-bottom:0.5rem;">Let's Connect</h2>
+        <p class="section-subtitle" style="margin:0 auto 2rem;">I'm always open to new opportunities, collaborations, and conversations.</p>
+        <div class="contact-card">
+            <h3>Justin Nikfarjam</h3>
+            <p>Los Angeles, California</p>
+            <div class="contact-links">
+                <a href="mailto:justinnik@icloud.com" class="contact-link">
+                    <i class="fa-solid fa-envelope"></i> justinnik@icloud.com
+                </a>
+                <a href="tel:+13102107229" class="contact-link">
+                    <i class="fa-solid fa-phone"></i> (310) 210-7229
+                </a>
+                <!-- LinkedIn link added -->
+                <a href="https://www.linkedin.com/in/justin-nikfarjam-8163ba297" class="contact-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Justin Nikfarjam. Built with passion. Los Angeles, CA.</p>
+    </div>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        // ── Mobile Menu Toggle ──────────────
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ── Navbar scroll effect ────────────
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ── Active nav link on scroll ───────
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ── Smooth reveal animation on scroll ──
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.exp-card, .leadership-card, .education-card, .skill-category, .about-highlight-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(25px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Trigger initial visibility for elements already in view
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.exp-card, .leadership-card, .education-card, .skill-category, .about-highlight-box').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
